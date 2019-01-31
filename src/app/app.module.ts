@@ -7,13 +7,15 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroService } from './hero.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemsComponent } from './items/items.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [ 
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    ItemsComponent
+    ItemsComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

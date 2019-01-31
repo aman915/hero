@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import comments from '../assets/data/comment';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of heroeeee';
+  comments;
+
+  constructor(){
+    this.comments = comments;
+  }
 }

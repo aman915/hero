@@ -4,7 +4,7 @@ import { Item } from './items';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  
 })
 export class HeroService {
   
