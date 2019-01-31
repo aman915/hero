@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import comments from '../assets/data/comment';
+import { HeroService } from './hero.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,10 @@ import comments from '../assets/data/comment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Tour of heroeeee';
-  comments;
+  title = 'Tour of heroes';
+   items;
 
-  constructor(){
-    this.comments = comments;
+  constructor(private _heroService : HeroService){
+   this._heroService.getItems().subscribe(data =>{this.items = data});
   }
 }
