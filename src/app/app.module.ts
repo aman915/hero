@@ -1,28 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroService } from './hero.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule }    from '@angular/common/http';
 import { ItemsComponent } from './items/items.component';
-import { CommentsComponent } from './comments/comments.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
-  declarations: [ 
-    AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    ItemsComponent,
-    CommentsComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     HttpClientModule
   ],
-  providers: [HeroService],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    ItemsComponent,
+    AddItemComponent
+        ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

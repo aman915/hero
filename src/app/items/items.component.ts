@@ -1,30 +1,32 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HeroService } from '../hero.service';
+import {Item} from '../items';
+import { FetchService } from '../fetch.service';
 
 
+  
 @Component({
   selector: 'items',
-  template: `
-  <div *ngFor="let item of items">
-  <ul>
-    <li> 
-      {{item.id}}
-      {{item.title}}   
-       <items [items]="item.items" *ngIf="item.items"></items>
-    </li>
-   </ul>
- </div>
-  `,
+  templateUrl: './items.component.html',
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
+  public items:Item[] = [];
+  container = [];
+  head:string;
+  sendId:number
   
-  @Input() items;
+  constructor(
+    private _fetchService : FetchService){
+    this._fetchService.getItems().subscribe(data => this.items = data)
+   }
+  
+  ngOnInit() {}
 
-  constructor(private _heroService : HeroService) { }
-
-  ngOnInit() {
-    
-  }
+  selected(item){
+   this.head = item.id+item.title;
+   this.sendId = this.items.length;
+   this.container = item.items;
+   this.items = this.container;
+ }
 
 }

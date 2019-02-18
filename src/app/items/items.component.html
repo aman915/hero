@@ -1,3 +1,13 @@
-<p>
-  items works!
-</p>
+<h1>{{ head }}</h1>
+<a class="selected" routerLink="/addItem/{{sendId}}">+Add Item</a>
+<div *ngFor="let item of items">
+  <ul>
+    <a (click)="selected(item)" routerLink='/item/{{item.id}}'>
+      <li>
+        {{ item.id }}
+        {{ item.title }}
+      </li>
+    </a>
+  </ul>
+</div>
+

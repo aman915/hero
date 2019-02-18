@@ -1,4 +1,5 @@
-module.exports = [
+{
+  "products": [
     {
       "id": "1",
       "title": "A",
@@ -35,8 +36,41 @@ module.exports = [
               "id": "2.1.1"
             }
           ]
+        },
+        {
+          "id": "2.2",
+          "title": "B.b",
+          "items": [
+            {
+              "id": "2.1.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "C",
+      "items": [
+        {
+          "id": "3.1",
+          "title": "C.a",
+          "items": [
+            {
+              "id": "3.1.1"
+            }
+          ]
+        },
+        {
+          "id": "3.2",
+          "title": "C.b",
+          "items": [
+            {
+              "id": "3.1.2"
+            }
+          ]
         }
       ]
     }
   ]
-  
+}
