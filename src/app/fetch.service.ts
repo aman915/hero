@@ -7,16 +7,27 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 export class FetchService {
-  private _url: string = "http://localhost:5555/products";
-
   constructor(private http: HttpClient) {}
 
   itemObj: object = {};
 
-  getItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this._url);
+  getItems(){
+    return this.http.get('http://localhost:3600/itemsjson');
   }
 
+  add(item, id) {
+    this.itemObj = {
+      id: id,
+      title: item.title
+    };
+    
+    this.http.post("http://localhost:/3600/addItem", this.itemObj);
+  }}
+
+
+
+
+  
   // getId(id){
 
   //  var breadcrumb = id.split(".");
@@ -31,13 +42,3 @@ export class FetchService {
   //   return task;
   // }
 
-  add(item, id) {
-    this.itemObj = {
-      id: id,
-      title: item.title
-    };
-    this.http
-      .post("http://localhost:5555/products", this.itemObj)
-      .subscribe(data => console.log(data));
-  }
-}

@@ -10,21 +10,24 @@ import { FetchService } from '../fetch.service';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  public items:Item[] = [];
+  public items = [];
+  public itemShadow = [];
   container = [];
   head:string;
   sendId:number
   
   constructor(
-    private _fetchService : FetchService){
-    this._fetchService.getItems().subscribe(data => this.items = data)
-   }
+    private _fetchService : FetchService){}
   
-  ngOnInit() {}
+  ngOnInit() {
+    this._fetchService.getItems().subscribe( (data : any) => {
+      this.items.push(...data.products);
+    })
+  }
 
   selected(item){
    this.head = item.id+item.title;
-   this.sendId = this.items.length;
+   this.sendId = item.id;
    this.container = item.items;
    this.items = this.container;
  }
